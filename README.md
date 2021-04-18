@@ -53,12 +53,12 @@ git clone https://huggingface.co/hfl/chinese-bert-wwm
 
 训练一个epoch
 
-| 模型                                  | train/val acc | 链接 |
-| :------------------------------------ | ------------- | ---- |
-| 会用内建BertForSequenceClassification | 0.896/0.938   | 链接 |
-| 自己实现Bert+fc 一层全连接层          | 0.904/0.929   | 链接 |
-| 将Bert最后四层相concat然后maxpooling  | 0.895/0.931   | 链接 |
-| BERT+CNN                              | 0.899/0.931   | 链接 |
+| 模型                                  | train/val acc | 链接                                                         |
+| :------------------------------------ | ------------- | ------------------------------------------------------------ |
+| 会用内建BertForSequenceClassification | 0.896/0.938   | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_CNN.py) |
+| 自己实现Bert+fc 一层全连接层          | 0.904/0.929   | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_lr.py) |
+| 将Bert最后四层相concat然后maxpooling  | 0.895/0.931   | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_lr_last4layer.py) |
+| BERT+CNN                              | 0.899/0.931   | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_CNN.py) |
 
 1. 官方的`transformer.models.bert.BertForSequenceClassification()`就是直接使用BertModel 再接一层全连接层实现的。第二个项目是为了方便自己修改网络结构，进行手动实现。效果差不多，可以自己修改接几层线形结构，但是实验了一层就够了。
 2. 根据参考2的论文，将最后四层concat然后进行拼接可以让bert在分类问题上有更好的效果。可惜本数据集上并没有体现出来。
