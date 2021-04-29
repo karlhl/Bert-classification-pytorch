@@ -24,11 +24,11 @@ class bert_cnn_Config(nn.Module):
         self.mytrainedmodel = "../result/bert_clf_model.bin"
 
         """
-        current loss: 0.6840348243713379 	 current acc: 0.53125
-        current loss: 0.34606328601045394 	 current acc: 0.8527674129353234
-        current loss: 0.27323225508455623 	 current acc: 0.88910536159601
-        train loss:  0.25111344460913987 	 train acc: 0.8996377457093652
-        valid loss:  0.18379641665766636 	 valid acc: 0.9313121743249645
+        current loss: 0.11688137799501419 	 current acc: 0.96875
+        current loss: 0.10488582722638821 	 current acc: 0.9643967661691543
+        current loss: 0.10978878578147909 	 current acc: 0.9628273067331671
+        train loss:  0.11139155609225695 	 train acc: 0.9632994833422412
+        valid loss:  0.13825790914283556 	 valid acc: 0.9526290857413549
         """
 
 class bert_cnn(nn.Module):
@@ -92,7 +92,7 @@ class bert_cnn(nn.Module):
 
 
         cnn_output = self.conv1(bert_output)
-        # print(cnn_output.shape) # [32, 64, 1, 1] # [32, 64, 100, 1]
+        # print(cnn_output.shape)# [32, 64, 100, 1]
 
         cnn_output = F.max_pool2d(cnn_output,kernel_size = (seq_len,1))
         # print(cnn_output.shape) # [32, 64, 1, 1]

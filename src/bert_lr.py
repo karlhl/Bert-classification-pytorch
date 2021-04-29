@@ -23,8 +23,11 @@ class bert_lr_Config(nn.Module):
         self.num_labels = 2
         self.dropout_bertout = 0.2
         """
-        train loss:  0.24722416375178766 	 train acc: 0.9041510778549795
-        valid loss:  0.18323853792566241 	 valid acc: 0.9294173377546187
+        current loss: 0.35029613971710205 	 current acc: 0.90625
+        current loss: 0.12146440659422632 	 current acc: 0.9614427860696517
+        current loss: 0.1080296240059515 	 current acc: 0.96571072319202
+        train loss:  0.1104624584773149 	 train acc: 0.964012114733654
+        valid loss:  0.15432240582551016 	 valid acc: 0.9445760303173851
         """
 
 class bert_lr(nn.Module):
@@ -65,7 +68,7 @@ class bert_lr(nn.Module):
         )
 
         pooled_output = outputs[1] # [1]是pooled的结果
-        print(pooled_output.shape)
+        # print(pooled_output.shape)
         pooled_output = self.dropout_bertout(pooled_output)
 
         logits = self.classifier(pooled_output)

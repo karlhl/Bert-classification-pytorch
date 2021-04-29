@@ -26,11 +26,11 @@ class bert_lr_last4layer_Config(nn.Module):
         self.dropout_bertout = 0.2
         self.mytrainedmodel = "../result/bert_clf_model.bin"
         """
-        current loss: 0.9340577721595764 	 current acc: 0.5
-        current loss: 0.42120998463968734 	 current acc: 0.8039490049751243
-        current loss: 0.32726284697131625 	 current acc: 0.859569825436409
-        train loss:  0.2987863278649111 	 train acc: 0.8749925767563395
-        valid loss:  0.1799339432212891 	 valid acc: 0.930838465182378
+        current loss: 0.4363991916179657 	 current acc: 0.8125
+        current loss: 0.1328232882924341 	 current acc: 0.9527363184079602
+        current loss: 0.11797185830000853 	 current acc: 0.9585411471321695
+        train loss:  0.11880445411248554 	 train acc: 0.9583704495516361
+        valid loss:  0.1511497257672476 	 valid acc: 0.9431549028896258
         """
 
 class bert_lr_last4layer(nn.Module):

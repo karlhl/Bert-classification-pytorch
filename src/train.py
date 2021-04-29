@@ -58,14 +58,14 @@ class transformers_bert_binary_classification(object):
                                                        hidden_dropout_prob=hidden_dropout_prob)
         # self.model = BertForSequenceClassification.from_pretrained(MODEL_PATH, config=self.model_config)
         """
-        train loss:  0.25684747986665146 	 train acc: 0.8966684482451452
-        valid loss:  0.1687205501578071 	 valid acc: 0.9388915206063477
+        train loss:  0.10704718510208534 	 train acc: 0.9637151849872321
+        valid loss:  0.17820182011222863 	 valid acc: 0.9459971577451445
         """
         # 如果想换模型，换成下边这句子
         # bert+lr 跟官方方法差不都
         # self.model = bert_lr(bert_lr_Config())
-        self.model = bert_cnn(bert_cnn_Config())
-        # self.model = bert_lr_last4layer(bert_lr_last4layer_Config())
+        # self.model = bert_cnn(bert_cnn_Config())
+        self.model = bert_lr_last4layer(bert_lr_last4layer_Config())
 
         self.model.to(self.device)
 
@@ -235,7 +235,7 @@ class transformers_bert_binary_classification(object):
 
 if __name__ == '__main__':
     classifier = transformers_bert_binary_classification()
-    classifier.train(1)
+    classifier.train(2)
     print(classifier.predict("交通不好"))  # 0
     print(classifier.predict("这个书不推荐看"))  # 0
     print(classifier.predict("交通挺好的"))  # 1
