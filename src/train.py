@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Created on 2020-07-29 19:05
-@Author  : Justin Jiang
-@Email   : jw_jiang@pku.edu.com
-
-使用基于HuggingFace开发的transformers库进行BERT模型的加载，并构建一个二分类模型
-
-"""
 import random
 
 import torch
