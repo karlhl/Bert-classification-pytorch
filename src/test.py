@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Created on 2020-08-04 09:51
-@Author  : Justin Jiang
-@Email   : jw_jiang@pku.edu.com
-
-写了一个直接读模型对输入单句进行判断的接口
-
-"""
 
 import torch
 import transformers

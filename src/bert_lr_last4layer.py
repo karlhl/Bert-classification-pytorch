@@ -78,10 +78,10 @@ class bert_lr_last4layer(nn.Module):
         # print(nopooled_output.shape) # torch.Size([32, 400, 768])
         kernel_hight = nopooled_output.shape[1]
         pooled_output = F.max_pool2d(nopooled_output,kernel_size = (kernel_hight,1))
-        # print(pooled_output.shape)
+        # print(pooled_output.shape) # torch.Size([32, 1, 768])
 
         flatten = pooled_output.view(batch_size,-1)
-        # print(flatten.shape)
+        # print(flatten.shape) # [32,768]
 
         flattened_output = self.dropout_bertout(flatten)
 
