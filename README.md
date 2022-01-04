@@ -51,7 +51,7 @@ git clone https://huggingface.co/hfl/chinese-bert-wwm
 
 除了第一个实验dropout_bert是0.1，其余是0.2. 剩下参数都一样。
 
-训练一个epoch
+训练3个epoch
 
 | 模型                                  | train/val acc | val acc | test acc | 链接                                                         |
 | :------------------------------------ | ------------- | ------- | -------- | ------------------------------------------------------------ |
