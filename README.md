@@ -1,4 +1,4 @@
-# Transformers_BERT_nbinary_classification
+# Bert-classification
 
 使用HuggingFace开发的Transformers库，使用BERT模型实现中文文本分类（二分类或多分类）
 
@@ -51,14 +51,14 @@ git clone https://huggingface.co/hfl/chinese-bert-wwm
 
 除了第一个实验dropout_bert是0.1，其余是0.2. 剩下参数都一样。
 
-训练2个epoch
+训练一个epoch
 
-| 模型                                  | train/val acc | 链接                                                         |
-| :------------------------------------ | ------------- | ------------------------------------------------------------ |
-| 会用内建BertForSequenceClassification | 0.964/0.946   | [链接](https://github.com/karlhl/Bert-classification-pytorch/blob/main/src/train.py) |
-| 自己实现Bert+fc 一层全连接层          | 0.961/0.945   | [链接](https://github.com/karlhl/Bert-classification-pytorch/blob/main/src/bert_lr.py) |
-| 将Bert最后四层相concat然后maxpooling  | 0.958/0.943   | [链接](https://github.com/karlhl/Bert-classification-pytorch/blob/main/src/bert_lr_last4layer.py) |
-| BERT+CNN                              | 0.963/0.953   | [链接](https://github.com/karlhl/Bert-classification-pytorch/blob/main/src/bert_CNN.py) |
+| 模型                                  | train/val acc | val acc | test acc | 链接                                                         |
+| :------------------------------------ | ------------- | ------- | -------- | ------------------------------------------------------------ |
+| 会用内建BertForSequenceClassification | 0.982         | 0.950   | 0.950    | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_CNN.py) |
+| 自己实现Bert+fc 一层全连接层          | 0.982         | 0.948   | 0.954    | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_lr.py) |
+| 将Bert最后四层相concat然后maxpooling  | 0.977         | 0.946   | 0.951    | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_lr_last4layer.py) |
+| BERT+CNN                              | 0.984         | 0.947   | 0.955    | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_CNN.py) |
 
 1. 官方的`transformer.models.bert.BertForSequenceClassification()`就是直接使用BertModel 再接一层全连接层实现的。第二个项目是为了方便自己修改网络结构，进行手动实现。效果差不多，可以自己修改接几层线形结构，但是实验了一层就够了。
 2. 根据参考2的论文，将最后四层concat然后进行拼接可以让bert在分类问题上有更好的效果。可惜本数据集上并没有体现出来。

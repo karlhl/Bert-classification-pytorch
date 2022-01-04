@@ -5,10 +5,9 @@ import torch
 import transformers
 import torch.nn as nn
 from transformers import BertConfig, BertForSequenceClassification
-from config import Config
-from torch.utils.data import DataLoader
+from tools.config import Config
 from transformers import AdamW
-from utils import SentimentDataset, convert_text_to_ids, seq_padding
+from tools.utils import convert_text_to_ids, seq_padding
 
 
 class bert_classifier(object):
