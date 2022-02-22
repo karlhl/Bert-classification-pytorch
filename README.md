@@ -61,7 +61,7 @@ git clone https://huggingface.co/hfl/chinese-bert-wwm
 | BERT+CNN                              | 0.984         | 0.947   | 0.955    | [链接](https://github.com/karlhl/Bert-classification/blob/main/src/bert_CNN.py) |
 
 1. 官方的`transformer.models.bert.BertForSequenceClassification()`就是直接使用BertModel 再接一层全连接层实现的。第二个项目是为了方便自己修改网络结构，进行手动实现。效果差不多，可以自己修改接几层线形结构，但是实验了一层就够了。
-2. 根据参考2的论文，将最后四层concat然后进行拼接可以让bert在分类问题上有更好的效果。可惜本数据集上并没有体现出来。
+2. 根据参考2的论文，将BERT最后四层的CLS向量concat然后取max pooling可以让bert在分类问题上有更好的效果。在THUNews上测试可以提高0.4%相比bert。已经很大了相比其他方法而言。
 3. 我一直觉得bert后面接CNN和RNN等都不好，毕竟transformer就是改善这两类模型的，再接一层也好不到哪去。如果我理解不到位可以告诉我。我还实验了bert使用前四层的输出进行concat，效果acc也能达到0.80+，层数越深效果感觉真的不明显。bert+cnn/rnn等这个模型在参考3 中两年前就有人做过实验，写出来过，他实验的[效果](https://github.com/649453932/Bert-Chinese-Text-Classification-Pytorch#%E6%95%88%E6%9E%9C)也是不如单纯的BERT。调了调cnn的大小，其实都差不多。。
 
 
